@@ -4,7 +4,7 @@
 
 <div align="center">
 
-[![Our npm path](https://badgen.net/npm/v/react-native-immersive-bars)](https://www.npmjs.com/package/react-native-immersive-bars/)
+[![Our npm path](https://badgen.net/npm/v/@aladdinstudios/react-native-immersive-bars)](https://www.npmjs.com/package/@aladdinstudios/react-native-immersive-bars/)
 
 </div>
 
@@ -33,13 +33,13 @@ Well, this package enables you to easily do so across various Android APIs level
 ## Install
 
 ```
-npm i --save react-native-immersive-bars
+npm i --save @aladdinstudios/react-native-immersive-bars
 ```
 
 Or
 
 ```
-yarn add react-native-immersive-bars
+yarn add @aladdinstudios/react-native-immersive-bars
 ```
 
 ### Android
@@ -61,31 +61,31 @@ android\app\src\main\res\values\styles.xml
 ### Usage in JavaScript
 
 ```jsx
-import {changeBarColors} from 'react-native-immersive-bars';
+import { changeBarColors } from "@aladdinstudios/react-native-immersive-bars";
 
 // ...
 
 React.useEffect(() => {
-    changeBarColors(isDarkMode, '#50000000', 'transparent');
-    // or changeBarColors(isDarkMode);
+  changeBarColors(isDarkMode, "#50000000", "transparent");
+  // or changeBarColors(isDarkMode);
 }, [isDarkMode]);
 ```
 
-The `changeBarColors` function has a single required parameter and two optional ones. 
+The `changeBarColors` function has a single required parameter and two optional ones.
 
 - `isDarkMode` (Required): If the app is in dark mode or not - will apply proper styling to icons and statusbar/navbar background
 - `translucentLightStr` (Optional): When a translucent bar must be drawn (due to API restrictions), what color it should be drawn in light mode
 - `translucentDarkStr` (Optional): When a translucent bar must be drawn (due to API restrictions), what color it should be drawn in dark mode
 
-Both `translucentLightStr` and `translucentDarkStr` accept and color that [Color.parseColor](https://developer.android.com/reference/android/graphics/Color#parseColor(java.lang.String)) is able to handle as well as the string `'transparent'`.
+Both `translucentLightStr` and `translucentDarkStr` accept and color that [Color.parseColor](<https://developer.android.com/reference/android/graphics/Color#parseColor(java.lang.String)>) is able to handle as well as the string `'transparent'`.
 
 > THIS MEANS THAT THREE DIGIT HEX SHORTHAND LIKE `#FFF` WILL CAUSE YOUR APP TO CRASH
 
 ### Adding to `onCreate` (Optional)
 
-If you only use the JavaScript code, your app will flash the navbar once the App.tsx code finally renders. 
+If you only use the JavaScript code, your app will flash the navbar once the App.tsx code finally renders.
 If you want to avoid a jump like that, you can edit your code in:
- 
+
 ```
 android > app > src > main > java > yourpackagepath > MainActivity.java
 ```
@@ -107,6 +107,12 @@ public class MainActivity extends ReactActivity {
 }
 ```
 
+## Notice about Fork
+
+This package is a fork of [react-native-immersive-bars](https://github.com/oceanbit/react-native-immersive-bars). Initially this just made the package work after the jcenter was shut down. I have a PR open to merge this into the original package, but I'm not sure if it will be merged.
+
+I also plan to add TurboModules support to this package, but I'm not sure when I'll get around to it. If I do, I'll make a PR to the original package as well.
+
 ## Alternatives
 
 If you don't need to use a fullscreen navbar, then you can simply change the color of the navbar itself with this package:
@@ -114,7 +120,6 @@ If you don't need to use a fullscreen navbar, then you can simply change the col
 - [`react-native-navigation-bar-color`](https://github.com/thebylito/react-native-navigation-bar-color)
 
 Note that this package does not play nice with [`react-native-safe-area-context`'s edge detection](https://github.com/th3rdwave/react-native-safe-area-context/).
-
 
 Otherwise, if you want to hide the navbar and the statusbar in their entirety, I'd suggest taking a look at the following package:
 
